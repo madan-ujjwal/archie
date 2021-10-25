@@ -12,7 +12,7 @@ public class QueueProducer {
     @Autowired
     private ProducerTemplate producerTemplate;
 
-    public void pushToQueue(String body, Map<String, Object> headers) throws Exception {
+    private void pushToQueue(String body, Map<String, Object> headers) throws Exception {
 
         /**
          * TODO

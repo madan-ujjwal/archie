@@ -31,7 +31,10 @@ public class QueueDefinition {
 
     public String getQueueUrl() {
 
-        // TODO create the queue url
+        /**
+         * TODO
+         * create the queue url and return
+         */
         String queueUrl = "";
         log.info("queue url : {}", queueUrl);
         return queueUrl;
