@@ -1,4 +1,4 @@
-package com.archie.controllers;
+package com.archie;
 
 import com.archie.model.dto.ArchieRequest;
 import com.archie.model.dto.ArchieResponse;
