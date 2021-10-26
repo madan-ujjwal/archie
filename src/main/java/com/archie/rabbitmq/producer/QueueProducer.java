@@ -16,6 +16,7 @@ public class QueueProducer {
 
         /**
          * TODO
+         * Step 2
          * Auto wire QueueDefinition class and fetch the url for the queue
          * using producerTemplate push to the queue
          */

@@ -1,4 +1,4 @@
-package com.archie;
+package com.archie.controllers;
 
 import com.archie.model.dto.ArchieRequest;
 import com.archie.model.dto.ArchieResponse;
@@ -18,6 +18,7 @@ public class ArchieController {
 
         /**
          * TODO
+         * Step 1
          * pass the request to the service method processFromPostCall
          * fetch the archie response and pass it in response
          */
@@ -30,7 +31,7 @@ public class ArchieController {
     }
 
     @RequestMapping(path = "/mongo/{archieId}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<ResponseWrapper<ArchieResponse>> getFromMysqlForId(@PathVariable("archieId") Long archieId) {
+    public ResponseEntity<ResponseWrapper<ArchieResponse>> getFromMongoForId(@PathVariable("archieId") Long archieId) {
 
         /**
          * TODO
@@ -39,7 +40,7 @@ public class ArchieController {
          */
 
         ArchieResponse archieResponse = new ArchieResponse();
-//        archieResponse = archieService.processFromPostCall(archieId);
+//        archieResponse = archieService.getFromMongoForId(archieId);
         ResponseWrapper<ArchieResponse> wrapper = new ResponseWrapper<>(archieResponse, null);
         return new ResponseEntity<>(wrapper, HttpStatus.OK);
     }
