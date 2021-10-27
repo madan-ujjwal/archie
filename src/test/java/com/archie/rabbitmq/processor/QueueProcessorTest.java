@@ -1,19 +1,48 @@
 package com.archie.rabbitmq.processor;
 
-import com.archie.rabbitmq.definition.QueueDefinition;
-import org.junit.jupiter.api.Assertions;
+import com.archie.service.ArchieService;
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 class QueueProcessorTest {
 
     @InjectMocks
     private QueueProcessor queueProcessor;
+
+    @Mock
+    private ArchieService archieService;
+
+    @Mock
+    private Exchange exchange;
+
+    private Message message;
+
+    private String body;
+
+    private Map<String, Object> headers;
+
+    // what does this mean
+    @BeforeEach
+    public void setUp() {
+
+        // why am i doing this ?
+        message = Mockito.mock(Message.class);
+        message.setBody(body);
+        exchange.setMessage(message);
+    }
 
     @Test
     public void shouldTestProcessorForNullExchange() {
@@ -60,13 +89,28 @@ class QueueProcessorTest {
     }
 
     @Test
-    public void shouldTestProcessorForSuccessfulProcessing() {
+    public void shouldTestProcessorForSuccessfulProcessing() throws Exception {
         /**
          * TODO
          * Step 8.5
          * write a unit test to test QueueProcessor.process
-         * case when every thing is proper
+         * complete this case
          */
+
+        body = "set a correct body here";
+        headers = new HashMap<>();
+
+        // what does this do ?
+        when(exchange.getIn()).thenReturn(message);
+        // what does this do ?
+        when(message.getBody(String.class)).thenReturn(body);
+        // what does this do ?
+        when(message.getHeaders()).thenReturn(headers);
+
+        queueProcessor.process(exchange);
+
+        // what does this do ?
+        verify(archieService, times(1)).processFromQueue(any());
 
     }
 }

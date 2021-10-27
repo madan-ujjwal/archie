@@ -61,5 +61,6 @@
     6. if there is no entity for that id, give back error code 400 with message `no entity present for requested id`
 * you are also supposed to cover your code with UT tests, there is a 100% coverage restriction, 
   so your builds will fail if the coverage is not reached
-  take reference from `QueueDefinitionTest.shouldGetQueueUrl` to see how to write a unit test
+  take reference from `QueueDefinitionTest.shouldGetQueueUrl()` to see how to write a unit test
+  also check `QueueProcessorTest.setUp()` and `QueueProcessorTest.shouldTestProcessorForSuccessfulProcessing()`
 * integration tests have already been written, your aim is to successfully pass them
