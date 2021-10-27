@@ -36,9 +36,9 @@ public class ArchieService {
 
         /**
          * TODO
-         * Step 3
+         * Step 4
          * 1. auto wire archie mongo repository
-         * 2. use that to save the mongo entity
+         * 2. use that to save the mongo entity in mongo
          */
     }
 
@@ -46,12 +46,20 @@ public class ArchieService {
         String queueBody = getBodyFromBo(archieBo);
         Map<String, Object> queueHeaders = new HashMap<>();
         queueHeaders.put("req_id", UUID.randomUUID().toString());
+
+        /**
+         * TODO
+         * Step 6
+         * 1. push the body and header to rmq using the commented method below
+         */
+
 //        queueProducer.pushToQueue(queueBody, queueHeaders);
     }
 
     private String getBodyFromBo(ArchieBo archieBo) {
         /**
          * TODO
+         * Step 5
          * 1. serialize the archie bo object to a json
          * 2. log the json created
          * 3. return that json string
@@ -62,16 +70,18 @@ public class ArchieService {
     public void processFromQueue(ArchieBo archieBo) {
         /**
          * TODO
+         * Step 10
          * 1. convert bo to mysql entity
          * 2. persist the mysql entity in mysql db
          */
     }
 
-    public ArchieResponse getFromMongoForId(long archieId) {
+    public ArchieResponse getFromMongoForId(String archieId) {
 
         /**
          * TODO
-         * 1. using the archieId get the mysql entity
+         * Step 12
+         * 1. using the archieId get the mongo entity
          * 2. convert to response object and return
          */
         return new ArchieResponse();

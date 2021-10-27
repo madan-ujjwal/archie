@@ -7,8 +7,13 @@ public class AgifyHttpCient {
     public int getExpectedAge(String name) {
 
         /**
-         * this api gives an expected age from a given name,
-         * make the request to this api using the name from request and get the expected age, populate that in the bo
+         * TODO
+         * Step 3
+         * 1. this api gives an expected age from a given name,
+         * 2. create a model class for the response
+         * 3. make the request to this api
+         * 4. deserialize it to your model class
+         * 5. get the age param from the deserialized object and return that in this method
          */
 
         return 0;

@@ -12,7 +12,8 @@ public class QueueProcessor implements Processor {
 
         /**
          * TODO
-         * 1. extract body from exhange
+         * Step 8
+         * 1. extract body from camel exchange
          * 2. send the bo to archie service method processFromQueue for further processing
          */
 
@@ -24,6 +25,7 @@ public class QueueProcessor implements Processor {
     private ArchieBo getBoFromExchange(Exchange exchange) {
         /**
          * TODO
+         * Step 9
          * 1. extract headers from message and set MDC request id header
          * 2. extract body from message below and deserialize the object using jackson library
          */

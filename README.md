@@ -32,3 +32,33 @@
     * bo : this model holds the business objects
     * dao : this model holds all the data level objects 
     NOTE : in the project you will be converting from one model to the other
+      
+## So what am I supposed to do
+
+* the module is supposed to be a http server
+* the controller layer has 3 calls : 
+  * POST (`postCall`)
+    1. this call will accept a post request
+    2. convert the request object to BO object
+    3. write the service layer logic provided in the TODO
+    4. convert the BO to mongo entity and persist the entity in mongo 
+    5. push the BO to rmq post successful persisting in mongo
+    6. post successfully pushing to rmq, convert the mongo entity to response
+    7. return the response as POST call response
+    8. accept the same pushed payload from rmq
+    9. after accepting from rmq, convert the BO to mysql entity
+  * GET (`getFromMongoForId`)
+    1. this call will accept a archie id
+    2. lookup the id in your mongo collection
+    3. return the entity as response if there is an entity for that id
+    4. if there is no entity for that id, give back error code 400 with message `no entity present for requested id`
+  * GET (`getFromMysqlForId`)
+    1. this is something you are supposed to write from scratch
+    2. this api is to listen on `/archie/v1/mysql/{archieId}`
+    3. this api is to accept an archie id in the request
+    4. this api then is to then lookup that id in mysql and fetch the entity
+    5. return the entity as response if there is an entity for that id
+    6. if there is no entity for that id, give back error code 400 with message `no entity present for requested id`
+* you are also supposed to cover your code with UT tests, there is a 100% coverage restriction, 
+  so your builds will fail if the coverage is not reached
+* integration tests have already been written, your aim is to successfully pass them 

@@ -19,8 +19,8 @@ public class ArchieController {
         /**
          * TODO
          * Step 1
-         * pass the request to the service method processFromPostCall
-         * fetch the archie response and pass it in response
+         * 1. pass the request to the service method processFromPostCall
+         * 2. accept the archie response from the service layer and return in the api
          */
 
 
@@ -31,12 +31,13 @@ public class ArchieController {
     }
 
     @RequestMapping(path = "/mongo/{archieId}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<ResponseWrapper<ArchieResponse>> getFromMongoForId(@PathVariable("archieId") Long archieId) {
+    public ResponseEntity<ResponseWrapper<ArchieResponse>> getFromMongoForId(@PathVariable("archieId") String archieId) {
 
         /**
          * TODO
-         * pass the request to the service method processFromPostCall
-         * fetch the archie response and pass it in response
+         * Step 11
+         * 1. pass the requested id to the service method processFromPostCall
+         * 2. accept the archie response from the service layer and return in the api
          */
 
         ArchieResponse archieResponse = new ArchieResponse();
@@ -47,7 +48,9 @@ public class ArchieController {
 
     /**
      * TODO
-     * write a GET api to fetch the archie response from mysql for a provided ip
+     * Step 13
+     * write a GET api to fetch the archie response from mysql for a provided archie id in the request
+     * similar to the GET call above, but here you will be fetching the entity from mysql
      */
 
 }
